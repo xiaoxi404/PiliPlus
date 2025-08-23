@@ -1,6 +1,10 @@
 name: Android Release
 
 on:
+  push:
+    branches:
+       - dev_xiaoxi404
+       - "release-*"
   pull_request:
         types:
           - opened

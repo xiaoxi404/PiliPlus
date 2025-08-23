@@ -804,4 +804,6 @@ class Pref {
     }
     return buvid;
   }
+  static String get vipCookie =>
+      _setting.get(SettingBoxKey.vipCookie, defaultValue: '');
 }
