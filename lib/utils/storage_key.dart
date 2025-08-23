@@ -203,6 +203,8 @@ class SettingBoxKey {
       navBarSort = 'navBarSort',
       tempPlayerConf = 'tempPlayerConf',
       reduceLuxColor = 'reduceLuxColor';
+
+  static const String vipCookie = 'vipCookie';
 }
 
 class LocalCacheKey {

@@ -791,4 +791,6 @@ class Pref {
     }
     return null;
   }
+  static String get vipCookie =>
+      _setting.get(SettingBoxKey.vipCookie, defaultValue: '');
 }
