@@ -226,6 +226,8 @@ abstract class SettingBoxKey {
       tempPlayerConf = 'tempPlayerConf',
       reduceLuxColor = 'reduceLuxColor',
       liveCdnUrl = 'liveCdnUrl';
+
+  static const String vipCookie = 'vipCookie';
 }
 
 abstract class LocalCacheKey {

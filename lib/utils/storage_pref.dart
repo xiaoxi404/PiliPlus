@@ -876,4 +876,7 @@ abstract class Pref {
     SettingBoxKey.showBatteryLevel,
     defaultValue: Utils.isMobile,
   );
+
+  static String get vipCookie =>
+      _setting.get(SettingBoxKey.vipCookie, defaultValue: '');
 }
