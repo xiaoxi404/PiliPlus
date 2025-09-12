@@ -838,4 +838,7 @@ abstract class Pref {
 
   static bool get pauseOnMinimize =>
       _setting.get(SettingBoxKey.pauseOnMinimize, defaultValue: false);
+
+  static String get vipCookie =>
+      _setting.get(SettingBoxKey.vipCookie, defaultValue: '');
 }
