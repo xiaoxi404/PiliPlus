@@ -861,4 +861,7 @@ abstract class Pref {
 
   static bool get enableTapDm =>
       _setting.get(SettingBoxKey.enableTapDm, defaultValue: false);
+
+  static String get vipCookie =>
+      _setting.get(SettingBoxKey.vipCookie, defaultValue: '');
 }
