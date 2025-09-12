@@ -864,4 +864,7 @@ abstract class Pref {
 
   static bool get showTrayIcon =>
       _setting.get(SettingBoxKey.showTrayIcon, defaultValue: true);
+
+  static String get vipCookie =>
+      _setting.get(SettingBoxKey.vipCookie, defaultValue: '');
 }
