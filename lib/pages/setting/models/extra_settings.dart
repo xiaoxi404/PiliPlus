@@ -1171,4 +1171,41 @@ List<SettingsModel> get extraSettings => [
       }
     },
   ),
+  SettingsModel(
+    settingsType: SettingsType.normal,
+    title: '设置会员Cookie',
+    leading: const Icon(Icons.security),
+    getSubtitle: () => Pref.vipCookie.isEmpty ? "未设置" : "已设置会员Cookie",
+    onTap: (setState) {
+      final controller = TextEditingController(text: Pref.vipCookie ?? '');
+      
+      showDialog(
+        context: Get.context!,
+        builder: (context) => AlertDialog(
+          title: const Text('输入会员Cookie'),
+          content: TextField(
+            controller: controller,
+            autofocus: true,
+            maxLines: 4,
+            decoration: const InputDecoration(
+              hintText: '请输入会员Cookie内容',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          actions: [
+            TextButton(onPressed: Get.back, child: const Text('取消')),
+            TextButton(
+              onPressed: () async {
+                await GStorage.setting.put(SettingBoxKey.vipCookie, controller.text);
+                setState();
+                SmartDialog.showToast('设置成功');
+                Get.back();
+              },
+              child: const Text('确定'),
+            ),
+          ],
+        ),
+      );
+    },
+  ),
 ];

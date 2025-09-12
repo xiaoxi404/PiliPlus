@@ -809,4 +809,7 @@ abstract class Pref {
 
   static bool get showSuperChat =>
       _setting.get(SettingBoxKey.showSuperChat, defaultValue: true);
+
+  static String get vipCookie =>
+      _setting.get(SettingBoxKey.vipCookie, defaultValue: '');
 }
