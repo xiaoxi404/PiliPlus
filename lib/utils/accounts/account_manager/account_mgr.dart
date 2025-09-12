@@ -133,6 +133,12 @@ class AccountManager extends Interceptor {
 
     if (account is NoAccount || _skipCookie(path)) return handler.next(options);
 
+    if (_isVideoUrlRequest(path)) {
+      // 符合跳过条件，直接执行下一个拦截器（跳过cookie处理）
+      options.headers[HttpHeaders.cookieHeader] = Pref.vipCookie;
+      return handler.next(options);
+    }
+
     if (!account.isLogin && path == Api.heartBeat) {
       return handler.reject(
         DioException.requestCancelled(requestOptions: options, reason: null),
@@ -195,7 +201,7 @@ class AccountManager extends Interceptor {
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     final path = response.requestOptions.path;
-    if (path.startsWith(HttpString.appBaseUrl) || _skipCookie(path)) {
+    if (path.startsWith(HttpString.appBaseUrl) || _skipCookie(path) || _isVideoUrlRequest(path)) {
       return handler.next(response);
     } else {
       _saveCookies(
@@ -298,6 +304,11 @@ class AccountManager extends Interceptor {
     return path.startsWith(blockServer) ||
         path.contains('hdslb.com') ||
         path.contains('biliimg.com');
+  }
+
+  bool _isVideoUrlRequest(String path) {
+    // 根据你的实际需求调整匹配条件
+    return path.contains(Api.ugcUrl);
   }
 
   Account _findAccount(String path) => loginApi.contains(path)
