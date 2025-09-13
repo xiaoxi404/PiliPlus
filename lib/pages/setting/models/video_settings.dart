@@ -355,6 +355,7 @@ List<SettingsModel> get videoSettings => [
               'auto-safe',
               'no',
               'yes',
+              'mediacodec',
             ].map((e) => (e, e)).toList(),
           );
         },
