@@ -16,6 +16,7 @@ abstract class SettingBoxKey {
       defaultPicQa = 'defaultPicQa',
       enableHA = 'enableHA',
       useOpenSLES = 'useOpenSLES',
+      useGpuNext = 'useGpuNext',
       expandBuffer = 'expandBuffer',
       hardwareDecoding = 'hardwareDecoding',
       videoSync = 'videoSync',

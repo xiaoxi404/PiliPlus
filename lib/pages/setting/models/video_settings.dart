@@ -298,6 +298,15 @@ List<SettingsModel> get videoSettings => [
     setKey: SettingBoxKey.expandBuffer,
     defaultVal: false,
   ),
+  if (Platform.isAndroid)
+    const SettingsModel(
+      settingsType: SettingsType.sw1tch,
+      title: '优先使用gpu-next输出视频',
+      leading: Icon(MdiIcons.videoImage),
+      subtitle: '关闭则优先使用gpu输出视频（此项即mpv的--vo），若遇兼容问题请尝试关闭。',
+      setKey: SettingBoxKey.useGpuNext,
+      defaultVal: true,
+    ),
   //video-sync
   SettingsModel(
     settingsType: SettingsType.normal,

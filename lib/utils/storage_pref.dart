@@ -736,6 +736,9 @@ abstract class Pref {
   static bool get useOpenSLES =>
       _setting.get(SettingBoxKey.useOpenSLES, defaultValue: true);
 
+  static bool get useGpuNext =>
+      _setting.get(SettingBoxKey.useGpuNext, defaultValue: true);
+
   static bool get enableAi =>
       _setting.get(SettingBoxKey.enableAi, defaultValue: false);
 
