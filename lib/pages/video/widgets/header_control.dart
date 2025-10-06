@@ -445,8 +445,14 @@ class HeaderControlState extends State<HeaderControl> {
                       SmartDialog.showToast('播放器未初始化');
                       return;
                     }
+                    final vo = await player.platform!.getProperty(
+                      'current-vo',
+                    );
                     final hwdec = await player.platform!.getProperty(
                       'hwdec-current',
+                    );
+                    final ao = await player.platform!.getProperty(
+                      'current-ao',
                     );
                     if (!context.mounted) return;
                     showDialog(
@@ -566,10 +572,28 @@ class HeaderControlState extends State<HeaderControl> {
                                 ),
                                 ListTile(
                                   dense: true,
+                                  title: const Text('video output driver'),
+                                  subtitle: Text(vo),
+                                  onTap: () => Utils.copyText(
+                                    'vo\n$vo',
+                                    needToast: false,
+                                  ),
+                                ),
+                                ListTile(
+                                  dense: true,
                                   title: const Text('hwdec'),
                                   subtitle: Text(hwdec),
                                   onTap: () => Utils.copyText(
                                     'hwdec\n$hwdec',
+                                    needToast: false,
+                                  ),
+                                ),
+                                ListTile(
+                                  dense: true,
+                                  title: const Text('audio output driver'),
+                                  subtitle: Text(ao),
+                                  onTap: () => Utils.copyText(
+                                    'ao\n$ao',
                                     needToast: false,
                                   ),
                                 ),
