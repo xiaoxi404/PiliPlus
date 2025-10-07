@@ -44,6 +44,7 @@ jobs:
           cache: true
 
       - name: apply bottom sheet patch
+        if: steps.flutter-action.outputs.PUB-CACHE-HIT != 'true'
         working-directory: ${{ env.FLUTTER_ROOT }}
         run: git apply $GITHUB_WORKSPACE/lib/scripts/bottom_sheet_patch.diff
 
