@@ -842,7 +842,7 @@ class PlPlayerController {
       player,
       configuration: VideoControllerConfiguration(
         enableHardwareAcceleration: enableHA,
-        androidAttachSurfaceAfterVideoParameters: false,
+        androidAttachSurfaceAfterVideoParameters: true,
         hwdec: enableHA ? hwdec : null,
       ),
     );
