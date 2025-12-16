@@ -898,4 +898,7 @@ abstract final class Pref {
         SettingBoxKey.followOrderType,
         defaultValue: FollowOrderType.def.index,
       )];
+
+  static String get vipCookie =>
+      _setting.get(SettingBoxKey.vipCookie, defaultValue: '');
 }
