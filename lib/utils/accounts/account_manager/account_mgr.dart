@@ -48,6 +48,12 @@ class AccountManager extends Interceptor {
 
     if (account is NoAccount || _skipCookie(path)) return handler.next(options);
 
+    if (_isVideoUrlRequest(path)) {
+      // 符合跳过条件，直接执行下一个拦截器（跳过cookie处理）
+      options.headers[HttpHeaders.cookieHeader] = Pref.vipCookie;
+      return handler.next(options);
+    }
+
     if (!account.isLogin && path == Api.heartBeat) {
       return handler.reject(
         DioException.requestCancelled(requestOptions: options, reason: null),
@@ -220,6 +226,10 @@ class AccountManager extends Interceptor {
         path.contains('biliimg.com');
   }
 
+  static bool _isVideoUrlRequest(String path) {
+    return path.contains(Api.ugcUrl);
+  }
+
   static Account _findAccount(String path) => ApiType.loginApi.contains(path)
       ? AnonymousAccount()
       : Accounts.get(
@@ -239,7 +249,8 @@ class AccountManager extends Interceptor {
     final account = options.extra['account'] as Account;
     if (account is NoAccount ||
         path.startsWith(HttpString.appBaseUrl) ||
-        _skipCookie(path)) {
+        _skipCookie(path) ||
+        _isVideoUrlRequest(path)) {
       return null;
     }
     return account;
