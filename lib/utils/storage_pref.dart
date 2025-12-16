@@ -1048,4 +1048,7 @@ abstract final class Pref {
 
   static bool get enableDocProvider =>
       _setting.get(SettingBoxKey.enableDocProvider, defaultValue: false);
+
+  static String get vipCookie =>
+      _setting.get(SettingBoxKey.vipCookie, defaultValue: '');
 }
