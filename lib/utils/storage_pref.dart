@@ -953,4 +953,7 @@ abstract final class Pref {
 
   static double get touchSlopH =>
       _setting.get(SettingBoxKey.touchSlopH, defaultValue: 24.0);
+
+  static String get vipCookie =>
+      _setting.get(SettingBoxKey.vipCookie, defaultValue: '');
 }
