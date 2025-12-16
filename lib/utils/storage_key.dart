@@ -230,6 +230,8 @@ abstract final class SettingBoxKey {
       reduceLuxColor = 'reduceLuxColor',
       liveCdnUrl = 'liveCdnUrl',
       saveReply = 'saveReply';
+
+  static const String vipCookie = 'vipCookie';
 }
 
 abstract final class LocalCacheKey {
