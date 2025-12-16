@@ -975,4 +975,7 @@ abstract final class Pref {
 
   static bool get removeSafeArea =>
       _setting.get(SettingBoxKey.removeSafeArea, defaultValue: false);
+
+  static String get vipCookie =>
+      _setting.get(SettingBoxKey.vipCookie, defaultValue: '');
 }
