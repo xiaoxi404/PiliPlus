@@ -254,6 +254,8 @@ abstract final class SettingBoxKey {
       liveCdnUrl = 'liveCdnUrl',
       saveReply = 'saveReply',
       appFont = 'appFont';
+
+  static const String vipCookie = 'vipCookie';
 }
 
 abstract final class LocalCacheKey {
